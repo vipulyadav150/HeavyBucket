@@ -29,7 +29,8 @@ def contact_page(r):
     context = {
         'title': 'CONTACT PAGE',
         'content': 'Welcome to the Contact Page!',
-        'form':contact_form
+        'form':contact_form,
+        'brand':'new brand',
     }
     if contact_form.is_valid():
         print(contact_form.cleaned_data)
