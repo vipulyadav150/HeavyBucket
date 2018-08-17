@@ -8,7 +8,17 @@
         <div class="col">
         {% include 'products/snippets/card.html' with instance=obj %}
         <!--<a href="{{ obj.get_absolute_url }}">{{ obj.title}} </a> <br/>-->
-        </div>
+            <!--{% cycle '<div></div><div class="row"></div>' '' '' %}-->
+            <!--{%cycle '<h1>Hello there!</h1>' ''%}-->
+            {{forloop.counter}}
+            {%if forloop.counter|divisibleby:3%}
+        </div></div><div class="row"><div class="col-12"><hr/></div>
+        {%elif forloop.counter|divisibleby:2%}
+    </div></div><div class="row"><div class="col-12"><hr/></div>
+            {%else%}
+                </div>
+            {%endif%}
+
         {% endfor %}
     </div>
 </div>
