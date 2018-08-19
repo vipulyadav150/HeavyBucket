@@ -9,6 +9,9 @@ from django.contrib.auth import get_user_model
 
 
 def home_page(r):
+    # print(r.session.get('first_name','Unknown'))  #getter
+    #Print session value first name ...if not present then default is Unknown i.e after session ends or log out
+
     context = {
         'title':'Hello World!',
         'content':'Welcome to the Home Page!'
