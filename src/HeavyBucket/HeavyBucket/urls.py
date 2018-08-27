@@ -7,7 +7,7 @@ from django.conf.urls import url , include
 from django.contrib import admin
 #For Logout view
 from django.contrib.auth.views import LogoutView
-
+from accounts.views import login_page , register_page , guest_register_view
 
 
 # from products.views import (
@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^contact/$', contact_page , name='contact'),
     url(r'^login/$', login_page ,name='login'),
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
-
+    url(r'^register/guest/$', guest_register_view ,name='guest_register'),
     url(r'^register/$', register_page ,name='register'),
     url(r'^products/', include('products.urls',namespace='products')),
     url(r'^cart/', include('carts.urls',namespace='cart')),
