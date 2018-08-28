@@ -8,7 +8,7 @@ from django.contrib import admin
 #For Logout view
 from django.contrib.auth.views import LogoutView
 from accounts.views import login_page , register_page , guest_register_view
-
+from addresses.views import checkout_address_create_view
 
 # from products.views import (
 #         ProductListView,
@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^register/$', register_page ,name='register'),
     url(r'^products/', include('products.urls',namespace='products')),
     url(r'^cart/', include('carts.urls',namespace='cart')),
+    url(r'^checkout/address/create/$',checkout_address_create_view,name='checkout_address_create'),
     url(r'^search/', include('search.urls',namespace='search')),
     url(r'^bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html')),
     # url(r'^featured/$', ProductFeaturedListView.as_view()),
