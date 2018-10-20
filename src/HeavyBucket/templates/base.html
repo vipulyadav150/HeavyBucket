@@ -65,8 +65,9 @@
                     console.log("In current Cart")
                     var cartTable = $(".cart-table")
                     var cartBody = cartTable.find(".cart-body")
-                    cartBody.html("<h1>Changed</h1>")
-
+                    // cartBody.html("<h1>Changed</h1>")
+                    productRows = cartBody.find(".cart-product")
+                    var currentUrl = window.location.href
                     //Use of data grabbed from an endpoint to refresh cart on click of remove link in cart iteself
                     var refreshCartUrl = '/api/cart/'
                     var refreshCartMethod = "GET";
@@ -78,6 +79,18 @@
                         data:data,
                         success:function(data){
                             console.log("Success")
+                            console.log(data)
+                            if (data.products.length > 0) {
+                                 productRows.html(" ")
+                                 cartBody.prepend("<tr><td colspan=3>Coming Soon</td></tr>")
+                                cartBody.find(".cart-subtotal").text(data.subtotal)
+                                cartBody.find(".cart-total").text(data.total)
+
+                            }
+                            else {
+                                window.location.href = currentUrl
+                            }
+
                         },
                         error:function(errorData){
                             console.log("Error")

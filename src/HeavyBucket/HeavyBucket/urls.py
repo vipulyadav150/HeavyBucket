@@ -21,13 +21,14 @@ from addresses.views import checkout_address_create_view , checkout_address_reus
 #         )
 from accounts.views import login_page , register_page
 from .views import home_page, about_page, contact_page
-
+from carts.views import cart_detail_api_view
 urlpatterns = [
     url(r'^$', home_page , name='home'),
     url(r'^about/$', about_page  ,name='about'),
     url(r'^contact/$', contact_page , name='contact'),
     url(r'^login/$', login_page ,name='login'),
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^api/cart/$', cart_detail_api_view, name='api-cart'),
     url(r'^register/guest/$', guest_register_view ,name='guest_register'),
     url(r'^register/$', register_page ,name='register'),
     url(r'^products/', include('products.urls',namespace='products')),
